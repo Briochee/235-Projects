@@ -1,0 +1,30 @@
+test: test.o Character.o Mage.o Scoundrel.o Ranger.o Barbarian.o
+	g++ -std=c++11 test.o Character.o Mage.o Scoundrel.o Ranger.o Barbarian.o -o test
+
+main: main.o Character.o Mage.o Scoundrel.o Ranger.o Barbarian.o
+	g++ -std=c++11 main.o Character.o Mage.o Scoundrel.o Ranger.o Barbarian.o -o main
+
+Mage.o: Mage.cpp Mage.hpp
+	g++ -std=c++11 -c Mage.cpp
+
+Scoundrel.o: Scoundrel.cpp Scoundrel.hpp
+	g++ -std=c++11 -c Scoundrel.cpp
+
+Ranger.o: Ranger.cpp Ranger.hpp
+	g++ -std=c++11 -c Ranger.cpp
+
+Barbarian.o: Barbarian.cpp Barbarian.hpp
+	g++ -std=c++11 -c Barbarian.cpp
+
+Character.o: Character.cpp Character.hpp
+	g++ -std=c++11 -c Character.cpp
+
+main.o: main.cpp
+	g++ -std=c++11 -c main.cpp
+
+test.o: test.cpp
+	g++ -std=c++11 -c test.cpp
+
+clean:
+	rm *.o main test
+rebuild: clean all

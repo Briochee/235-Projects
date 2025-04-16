@@ -1,0 +1,12 @@
+output: main.o Character.o
+	g++ main.o Character.o -o output
+
+main.o: main.cpp
+	g++ -c main.cpp
+
+Character.o: Character.cpp Character.hpp
+	g++ -c Character.cpp
+
+clean:
+	rm *.o output
+rebuild: clean all
